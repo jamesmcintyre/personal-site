@@ -1,0 +1,206 @@
+.placehold {
+  background-color: rgba(180, 180, 180, 0.72);
+}
+
+span#intro {
+  font-size: 48px;
+  color: black;
+  font-family: sans-serif;
+  font-family: "Roboto",sans-serif;
+  font-weight: 100;
+  color: rgb(119, 119, 119);
+  -moz-osx-font-smoothing: grayscale;
+  transition: 1s all ease;
+}
+
+#intro-text{
+  transition: 1s all ease;
+}
+
+.intro-container {
+  margin-top: 40vh;
+}
+
+.page {
+  z-index: 1;
+}
+
+.bg-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position:fixed;
+  top:0;
+  left:0;
+}
+
+
+
+.speck{
+  border-radius: 50%;
+  position: absolute;
+  transition: .4s all ease;
+}
+
+
+
+.size-1 {
+  width: 3vmax;
+  height: 3vmax;
+  background-color: rgb(234, 234, 234);
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+.size-2 {
+  width: 8vmax;
+  height: 8vmax;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  background-color: rgb(223, 223, 223);
+
+}
+.size-3 {
+  width: 15vmax;
+  height: 15vmax;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  background-color: rgb(209, 209, 209);
+}
+.size-4 {
+  width: 18vmax;
+  height: 18vmax;
+  filter: blur(22px);
+  -webkit-filter: blur(22px);
+  background-color: rgb(180, 180, 180);
+}
+.size-5 {
+  width: 27vmax;
+  height: 27vmax;
+  filter: blur(35px);
+  -webkit-filter: blur(35px);
+  background-color: rgb(146, 146, 146);
+
+}
+
+
+
+
+.delay-1 {
+  animation-delay: .5s !important;
+}
+.delay-2 {
+  animation-delay: .1s !important;
+}
+.delay-3 {
+  animation-delay: 1.4s !important;
+}
+.delay-4 {
+  animation-delay: 1.8s !important;
+}
+
+
+
+.in-focus {
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+}
+
+.add-blur {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.high-blur {
+  filter: blur(15px) !important;
+  -webkit-filter: blur(15px) !important;
+}
+
+
+
+.floating {
+  animation: float 8s ease infinite;
+}
+
+
+@keyframes float {
+  50% {
+     transform: translate(0, 35px);
+  }
+}
+
+
+
+
+
+
+/*@keyframes seqText {
+  0% { opacity: 0; },
+	100% { opacity: 1; }
+}
+#intro-text span {
+	animation: seqText 2s forwards;
+
+}
+#intro-text span:nth-child(1) {
+	animation-delay: .5s;
+}
+#intro-text span:nth-child(2) {
+	animation-delay: 1s;
+}
+#intro-text span:nth-child(3) {
+	animation-delay: 1.5s;
+}*/
+
+/* make keyframes that tell the start state and the end state of our object */
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+	opacity:0;  /* make things invisible upon start */
+	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+
+	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+
+	-webkit-animation-duration:.5s;
+	-moz-animation-duration:.5s;
+	animation-duration:.5s;
+}
+
+.fade-in-long {
+	opacity:0;  /* make things invisible upon start */
+	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+
+	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+
+	-webkit-animation-duration:1.5s;
+	-moz-animation-duration:1.5s;
+	animation-duration:1.5s;
+}
+
+.fade-in.one {
+-webkit-animation-delay: 0.5s;
+-moz-animation-delay: 0.5s;
+animation-delay: 0.5s;
+}
+
+.fade-in.two {
+-webkit-animation-delay: 0.9s;
+-moz-animation-delay:0.9s;
+animation-delay: 0.9s;
+}
+
+.fade-in.three {
+-webkit-animation-delay: 1.2s;
+-moz-animation-delay: 1.2s;
+animation-delay: 1.2s;
+}
