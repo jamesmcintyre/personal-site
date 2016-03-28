@@ -1,19 +1,42 @@
+.temp {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,efefef+13,ffffff+100 */
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ffffff 0%, #efefef 13%, #ffffff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#efefef 13%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #ffffff 0%,#efefef 13%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+.transparent {
+  opacity: 0.2;
+}
+
 .placehold {
   background-color: rgba(180, 180, 180, 0.72);
 }
 
-span#intro {
+span.intro {
   font-size: 48px;
-  color: black;
+  color: #414141;
   font-family: sans-serif;
   font-family: "Roboto",sans-serif;
   font-weight: 100;
-  color: rgb(119, 119, 119);
   -moz-osx-font-smoothing: grayscale;
   transition: 1s all ease;
 }
+span.bold {
+  font-weight: 300;
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+}
 
-#intro-text{
+.intro-text{
   transition: 1s all ease;
 }
 
@@ -84,7 +107,6 @@ span#intro {
 
 
 
-
 .delay-1 {
   animation-delay: .5s !important;
 }
@@ -101,8 +123,9 @@ span#intro {
 
 
 .in-focus {
-  filter: blur(0px);
-  -webkit-filter: blur(0px);
+  filter: blur(0px) !important;
+  -webkit-filter: blur(0px) !important;
+  opacity: 1 !important;
 }
 
 .add-blur {
@@ -110,10 +133,38 @@ span#intro {
   -webkit-filter: blur(8px);
 }
 
-.high-blur {
-  filter: blur(15px) !important;
-  -webkit-filter: blur(15px) !important;
+
+.highBlur {
+  opacity: 0.5 !important;
+  filter: blur(20px) !important;
+  -webkit-filter: blur(20px) !important;
 }
+
+
+
+
+video.addImg {
+  display: block;
+  height: 100%;
+  width: auto;
+  margin-left: -31%;
+}
+
+.imgtest {
+  animation: bgIn 1.5s ease 1;
+  -moz-animation: bgIn 1.5s ease 1;
+}
+@-moz-keyframes bgIn { from { opacity:0; } to { opacity:1; } }
+@keyframes bgIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 
 
 
@@ -121,15 +172,11 @@ span#intro {
   animation: float 8s ease infinite;
 }
 
-
 @keyframes float {
   50% {
      transform: translate(0, 35px);
   }
 }
-
-
-
 
 
 
@@ -159,32 +206,50 @@ span#intro {
 
 .fade-in {
 	opacity:0;  /* make things invisible upon start */
-	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-	-moz-animation:fadeIn ease-in 1;
-	animation:fadeIn ease-in 1;
+	-webkit-animation:fadeIn 1.5s ease-in 1, float 8s ease infinite;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	-moz-animation:fadeIn 1.5s ease-in 1, float 8s ease infinite;
+	animation: fadeIn 1.5s ease-in 1, float 8s ease infinite;
 
 	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
 	-moz-animation-fill-mode:forwards;
 	animation-fill-mode:forwards;
 
-	-webkit-animation-duration:.5s;
+	/*-webkit-animation-duration:.5s;
 	-moz-animation-duration:.5s;
-	animation-duration:.5s;
+	animation-duration:.5s;*/
+
 }
+
+.fade-in.fast {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn .3s ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn .3s ease-in 1;
+  animation: fadeIn .3s ease-in 1;
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+}
+
+
+
+
 
 .fade-in-long {
 	opacity:0;  /* make things invisible upon start */
-	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-	-moz-animation:fadeIn ease-in 1;
-	animation:fadeIn ease-in 1;
+  -webkit-animation:fadeIn 1s ease-in 1, float 8s ease infinite;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	-moz-animation:fadeIn 1s ease-in 1, float 8s ease infinite;
+	animation: fadeIn 1s ease-in 1, float 8s ease infinite;
 
 	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
 	-moz-animation-fill-mode:forwards;
 	animation-fill-mode:forwards;
 
-	-webkit-animation-duration:1.5s;
-	-moz-animation-duration:1.5s;
-	animation-duration:1.5s;
+}
+
+.fade-in.zero {
+-webkit-animation-delay: 0.3s;
+-moz-animation-delay: 0.3s;
+animation-delay: 0.s;
 }
 
 .fade-in.one {
