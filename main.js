@@ -20,6 +20,8 @@ function init(){
 
 }
 
+  var $faceSpeck = $('#spot1').detach().removeClass('hidden').addClass('blurInFast');
+
   var $helloMessage = $('.hello-message').detach().removeClass('hidden');
   var $helloSpeck = $('#hello').detach().removeClass('hidden');
 
@@ -45,10 +47,14 @@ function init(){
 
   function introSequence(counter, limit){
 
+    $groups[2] = $('.size-3');
+
+
     if(counter === 0 && limit !== 0){
       $groups.forEach(function(e, i, arr){
         $(e).removeClass('in-focus');
       });
+
     }
 
     setTimeout(function(){
@@ -64,9 +70,13 @@ function init(){
       if($groups[counter+1] !== null && counter < limit) {
         introSequence(++counter, limit);
       } else if (counter === limit){
-        // console.log($groups[counter]);
         textType(specialWordsEachPhrase[mainCounter]);
-        focusFlash(++limit);
+          if(limit === 2){
+            myFace();
+          }
+          else if(limit === 3){
+            focusFlash(++limit);
+          }
       }
 
     }, 300);
@@ -77,9 +87,6 @@ function init(){
 
 
   function helloSequence(){
-
-
-
 
     setTimeout(function(){
       $('.bg-container').append($helloSpeck);
@@ -93,18 +100,11 @@ function init(){
 
     setTimeout(function(){
       $('.hello-message').removeClass('blurInSubtle add-blur');
-      // $('.hello-message').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-      // });
     }, 4300);
 
     setTimeout(function(){
       $('#hello').removeClass('blurIn');
     }, 4000);
-
-    // setTimeout(function(){
-    //   clearInterval(cycleInt);
-    // }, 10000);
-
 
     setTimeout(function(){
       revealSpecks();
@@ -119,14 +119,9 @@ function init(){
         introSequence(0, 2);
       },2900)
       $('#hello').empty().css('overflow','').removeClass('in-focus');
-    }, 7300);
+    }, 7000);
 
   }
-
-
-
-
-
 
   var cycleInt;
   var helloArray = ["imgs/hello-003.gif", "imgs/hello-001.gif", "imgs/hello-003.gif", "imgs/hello-004.gif", "imgs/hello-005.gif", "imgs/hello-006.gif"];
@@ -136,6 +131,38 @@ function init(){
     $('#hello').css('background-image', 'url("' + helloArray[now] + '")');
   }
 
+
+
+  function myFace(){
+
+    setTimeout(function(){
+      // $('#spot1').css('background-image', 'url("imgs/me.jpg")');
+      $('#main-bg').append($faceSpeck);
+
+    }, 1200);
+
+
+    setTimeout(function(){
+
+      $('span.intro').remove().addClass('blurOutSubtle').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $('span.intro').remove();
+      });
+      $('#spot1').addClass('speck size-3 floating').removeClass('special-speck-2 size-3-hello blurInFast blurOutSubtle');
+
+    }, 4100);
+
+
+
+    setTimeout(function(){
+      mainCounter++;
+      introSequence(0,3);
+      $('.hello-message').addClass('blurOutSubtle').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $('.hello-message').remove();
+      });
+    }, 4200);
+
+
+  }
 
 
 
@@ -184,9 +211,33 @@ function init(){
 
 
   function swapSequence(){
+
+    var spans = ['<span class="intro swap fade-in fast">UX </span>', '<span class="intro swap fade-in fast">designer.</span>'];
+    var spans2 = ['<span class="intro swap fade-in fast">product </span>', '<span class="intro swap fade-in fast">guy.</span>'];
+
     setTimeout(function(){
       $('.swap').remove();
-    }, 2500);
+    }, 1700);
+
+    setTimeout(function(){
+      spans.forEach(function(e, i, arr){
+        return setTimeout(function(){
+          $introTextContainer.append(e);
+        }, i*280);
+      });
+    }, 2200);
+
+    setTimeout(function(){
+      $('.swap').remove();
+      spans2.forEach(function(e, i, arr){
+        return setTimeout(function(){
+          $introTextContainer.append(e);
+        }, i*280);
+      });
+    }, 3900);
+
+
+
   }
 
 
@@ -207,22 +258,29 @@ function init(){
 
   }
 
-
+  var gifSources2 = ['imgs/design-001.gif', 'imgs/design-002.gif', 'imgs/design-003.gif'];
   var videoSources3 = ['imgs/focus_zen.mp4','imgs/focus_wingsuit.mp4','imgs/focus_cheetah.mp4'];
-  var videoSources = [[], [], videoSources3, [], [] ];
+  var videoSources = [[], gifSources2, videoSources3, [], [] ];
 
   function focusFlash(limit){
+    console.log('focus flash', limit);
 
-    var $selection = $('.size-3 .speck');
+    var selectionText = '.size-'+limit+'.speck';
 
-    $selection.each(function(index){
+    var $selection = $(selectionText);
+
+
+    if(mainCounter === 1){
+
+      $selection.each(function(index){
 
         var videoSrcString = videoSources[mainCounter-1][index];
+
 
         var $currentSpeck = $(this);
 
         var videoComponent = '<video class="imgtest addImg" autoplay loop ><source src=' + videoSrcString + ' type="video/mp4" /></video>';
-        var imageComponent = '<img class="imgtest addImg" src="http://i.giphy.com/3osxYgQeaZMV8rPiGQ.gif"></img>';
+        // var imageComponent = '<img class="imgtest addImg" src=' + videoSrcString + '></img>';
 
         // var $testVid = $(videoComponent).addEventListener('ended', loopThrough(limit));
 
@@ -231,6 +289,31 @@ function init(){
           $currentSpeck.css('overflow', 'hidden').addClass('current-speck').append(videoComponent);
         }, (500));
 
-    });
+      });
+
+    }
+    else if(mainCounter === 2){
+
+      $selection.each(function(index){
+
+        var videoSrcString = videoSources[mainCounter-1][index];
+
+        var $currentSpeck = $(this);
+
+        // var videoComponent = '<video class="imgtest addImg" autoplay loop ><source src=' + videoSrcString + ' type="video/mp4" /></video>';
+        var imageComponent = '<img class="imgtest addImg" src=' + videoSrcString + '></img>';
+
+        // var $testVid = $(videoComponent).addEventListener('ended', loopThrough(limit));
+
+        setTimeout(function(){
+          // $currentSpeck.addClass('focusbg');
+          $currentSpeck.css('overflow', 'hidden').addClass('current-speck').append(imageComponent);
+        }, (500));
+
+      });
+
+    }
+
+
 
   };

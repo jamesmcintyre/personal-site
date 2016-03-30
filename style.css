@@ -42,9 +42,8 @@ span.hello {
 
 
 span.intro {
-  font-size: 48px;
-  color: #414141;
-  font-family: sans-serif;
+  font-size: 51px;
+  color: #323232;
   font-family: "Roboto",sans-serif;
   font-weight: 100;
   -moz-osx-font-smoothing: grayscale;
@@ -61,7 +60,7 @@ span.bold {
 }
 
 .intro-container {
-  margin-top: 35vh;
+  margin-top: 42vh;
 }
 
 .page {
@@ -100,33 +99,46 @@ span.bold {
   position: absolute;;
   /*transition: .4s all ease;*/
   -moz-transition: 1s -moz-filter linear;
-  background: url('imgs/ralph.gif') center center no-repeat;
+  background: url('imgs/hello-001.gif') center center no-repeat;
   background-size: cover;
   /*filter: url(blur.svg#blur);*/
 }
 
+.special-speck-2{
+  border-radius: 50%;
+  position: absolute;;
+  background: url('imgs/me.jpg') center center no-repeat;*/
+  background-size: cover;
+}
+
+
+#spot1 {
+  /*background-image: url('imgs/me.jpg');*/
+  background-size: cover;
+  /*transition: 2s all ease;*/
+}
 
 
 .size-1 {
   width: 3vmax;
   height: 3vmax;
   background-color: rgb(234, 234, 234);
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
+  filter: blur(9px);
+  -webkit-filter: blur(9px);
 }
 .size-2 {
   width: 8vmax;
   height: 8vmax;
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
+  filter: blur(12px);
+  -webkit-filter: blur(12px);
   background-color: rgb(223, 223, 223);
 
 }
 .size-3 {
   width: 15vmax;
   height: 15vmax;
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
+  filter: blur(14px);
+  -webkit-filter: blur(14px);
   background-color: rgb(209, 209, 209);
 }
 .size-3-hello {
@@ -177,6 +189,10 @@ span.bold {
   filter: blur(8px);
   -webkit-filter: blur(8px);
 }
+.add-blur-slight {
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+}
 
 
 .highBlur {
@@ -193,6 +209,10 @@ video.addImg {
   height: 100%;
   width: auto;
   margin-left: -31%;
+}
+
+img.addImg {
+  width: 100%;
 }
 
 .imgtest {
@@ -329,6 +349,16 @@ video.addImg {
   animation: blur-out-subtle 1s ease 1;
   -webkit-animation: blur-out-subtle 1s ease 1;
   -moz-animation:  blur-out-subtle 1s ease 1;
+  -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
+  animation-direction: reverse;
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+}
+.blurInFast {
+  animation: blur-out-subtle .4s ease 1;
+  -webkit-animation: blur-out-subtle .4s ease 1;
+  -moz-animation:  blur-out-subtle .4s ease 1;
   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
   animation-direction: reverse;
   -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
