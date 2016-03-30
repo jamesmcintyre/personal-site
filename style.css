@@ -98,7 +98,7 @@ span.bold {
   border-radius: 50%;
   position: absolute;;
   /*transition: .4s all ease;*/
-  -moz-transition: 1s -moz-filter linear;
+  /*-moz-transition: 1s -moz-filter linear;*/
   background: url('imgs/hello-001.gif') center center no-repeat;
   background-size: cover;
   /*filter: url(blur.svg#blur);*/
@@ -162,6 +162,18 @@ span.bold {
 
 }
 
+#iam1{
+  opacity: 1;
+}
+#iam2{
+  opacity: 0;
+}
+#iam3{
+  opacity: 0;
+}
+#face{
+  opacity: 0;
+}
 
 
 .delay-1 {
@@ -213,6 +225,8 @@ video.addImg {
 
 img.addImg {
   width: 100%;
+  transition: 1s all ease;
+  -moz-transition: 1s all ease;
 }
 
 .imgtest {

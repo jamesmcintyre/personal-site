@@ -20,7 +20,7 @@ function init(){
 
 }
 
-  var $faceSpeck = $('#spot1').detach().removeClass('hidden').addClass('blurInFast');
+  // var $faceSpeck = $('#spot1').detach().removeClass('hidden').addClass('blurInFast');
 
   var $helloMessage = $('.hello-message').detach().removeClass('hidden');
   var $helloSpeck = $('#hello').detach().removeClass('hidden');
@@ -135,11 +135,25 @@ function init(){
 
   function myFace(){
 
+    var $img = '<img id="face" class="addImg" src="imgs/me.jpg"></img>';
+
+    setTimeout(function(){
+      $('#spot1').css('overflow', 'hidden').append($img);
+
+    }, 1000);
+
     setTimeout(function(){
       // $('#spot1').css('background-image', 'url("imgs/me.jpg")');
-      $('#main-bg').append($faceSpeck);
+      // $('#main-bg').append($faceSpeck);
+      $('#face').css('opacity','1');
 
     }, 1200);
+
+    setTimeout(function(){
+      $('#spot1').css('background-image', 'url("imgs/me.jpg")');
+      // $('#main-bg').append($faceSpeck);
+      $('#spot1').css('overflow', '').empty();
+    }, 2800);
 
 
     setTimeout(function(){
@@ -216,25 +230,27 @@ function init(){
     var spans2 = ['<span class="intro swap fade-in fast">product </span>', '<span class="intro swap fade-in fast">guy.</span>'];
 
     setTimeout(function(){
-      $('.swap').remove();
-    }, 1700);
+    }, 2000);
 
     setTimeout(function(){
+      $('.swap').remove();
+      $('#iam2').css('opacity', '1');
       spans.forEach(function(e, i, arr){
         return setTimeout(function(){
           $introTextContainer.append(e);
         }, i*280);
       });
-    }, 2200);
+    }, 2000);
 
     setTimeout(function(){
       $('.swap').remove();
+      $('#iam3').css('opacity', '1');
       spans2.forEach(function(e, i, arr){
         return setTimeout(function(){
           $introTextContainer.append(e);
         }, i*280);
       });
-    }, 3900);
+    }, 4000);
 
 
 
@@ -298,10 +314,12 @@ function init(){
 
         var videoSrcString = videoSources[mainCounter-1][index];
 
+        var imgId = 'iam' + (index+1);
+
         var $currentSpeck = $(this);
 
         // var videoComponent = '<video class="imgtest addImg" autoplay loop ><source src=' + videoSrcString + ' type="video/mp4" /></video>';
-        var imageComponent = '<img class="imgtest addImg" src=' + videoSrcString + '></img>';
+        var imageComponent = '<img id=' + imgId + ' class="addImg" src=' + videoSrcString + '></img>';
 
         // var $testVid = $(videoComponent).addEventListener('ended', loopThrough(limit));
 
