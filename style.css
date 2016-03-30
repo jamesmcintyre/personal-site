@@ -1,14 +1,3 @@
-.temp {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,efefef+13,ffffff+100 */
-  background: #ffffff; /* Old browsers */
-  background: -moz-linear-gradient(top,  #ffffff 0%, #efefef 13%, #ffffff 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  #ffffff 0%,#efefef 13%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  #ffffff 0%,#efefef 13%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-
-}
-
-
 .hidden {
   display: none !important;
 }
@@ -20,6 +9,37 @@
 .placehold {
   background-color: rgba(180, 180, 180, 0.72);
 }
+
+
+span.focus {
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+}
+
+span.hello {
+  font-size: 6vmax !important;
+}
+
+
+.in-focus-bg {
+  background: -moz-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(227,227,227,1) 33%, rgba(217,217,217,1) 33%, rgba(254,254,254,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(240,240,240,1)), color-stop(33%, rgba(227,227,227,1)), color-stop(33%, rgba(217,217,217,1)), color-stop(100%, rgba(254,254,254,1)));
+  background: -webkit-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(227,227,227,1) 33%, rgba(217,217,217,1) 33%, rgba(254,254,254,1) 100%);
+  background: -o-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(227,227,227,1) 33%, rgba(217,217,217,1) 33%, rgba(254,254,254,1) 100%);
+  background: -ms-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(227,227,227,1) 33%, rgba(217,217,217,1) 33%, rgba(254,254,254,1) 100%);
+  background: linear-gradient(to bottom, rgba(240,240,240,1) 0%, rgba(227,227,227,1) 33%, rgba(217,217,217,1) 33%, rgba(254,254,254,1) 100%);
+}
+
+.out-focus-bg {
+  background: -moz-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(217,217,217,1) 31%, rgba(254,254,254,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(240,240,240,1)), color-stop(31%, rgba(217,217,217,1)), color-stop(100%, rgba(254,254,254,1)));
+  background: -webkit-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(217,217,217,1) 31%, rgba(254,254,254,1) 100%);
+  background: -o-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(217,217,217,1) 31%, rgba(254,254,254,1) 100%);
+  background: -ms-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(217,217,217,1) 31%, rgba(254,254,254,1) 100%);
+  background: linear-gradient(to bottom, rgba(240,240,240,1) 0%, rgba(217,217,217,1) 31%, rgba(254,254,254,1) 100%);
+}
+
+
 
 span.intro {
   font-size: 48px;
@@ -41,7 +61,7 @@ span.bold {
 }
 
 .intro-container {
-  margin-top: 40vh;
+  margin-top: 35vh;
 }
 
 .page {
@@ -55,14 +75,34 @@ span.bold {
   position:fixed;
   top:0;
   left:0;
+  transition: 1s all ease;
 }
 
-
+.hello-message {
+  position: absolute;
+  font-family: "Roboto",sans-serif;
+  font-size: 5vmax;
+  font-weight: 100;
+  color: rgb(88, 88, 88);
+  right: 34%;
+  top: 40%;
+  transition: .8s all ease;
+}
 
 .speck{
   border-radius: 50%;
   position: absolute;
   transition: .4s all ease;
+}
+
+.special-speck{
+  border-radius: 50%;
+  position: absolute;;
+  /*transition: .4s all ease;*/
+  -moz-transition: 1s -moz-filter linear;
+  background: url('imgs/ralph.gif') center center no-repeat;
+  background-size: cover;
+  /*filter: url(blur.svg#blur);*/
 }
 
 
@@ -87,6 +127,11 @@ span.bold {
   height: 15vmax;
   filter: blur(8px);
   -webkit-filter: blur(8px);
+  background-color: rgb(209, 209, 209);
+}
+.size-3-hello {
+  width: 15vmax;
+  height: 15vmax;
   background-color: rgb(209, 209, 209);
 }
 .size-4 {
@@ -179,6 +224,138 @@ video.addImg {
 }
 
 
+.blurOut {
+  animation: blur-in 3s ease-out 1;
+  -webkit-animation: blur-in 3s ease-out 1;
+  -moz-animation:  blur-in 3s ease-out 1;
+  -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
+  animation-direction: reverse;
+}
+
+
+
+.blurIn-low {
+  animation: blur-in-low 3.5s ease 1;
+  -webkit-animation: blur-in-low 3.5s ease 1;
+  -moz-animation:  blur-in-low 3.5s ease 1;
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+}
+
+@keyframes blur-in-low {
+  0% {
+     filter: blur(25px);
+     -webkit-filter: blur(25px);
+     opacity: 0.6;
+     /*transform: scale(1.3, 1.3);*/
+  }
+  100% {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    opacity: 1;
+   /*transform: scale(1, 1);*/
+  }
+}
+
+
+.blurIn {
+  animation: blur-in 3.5s ease 1 !important;
+  -webkit-animation: blur-in 3.5s ease 1 !important;
+  -moz-animation:  blur-in 3.5s ease 1 !important;
+}
+
+@keyframes blur-in {
+  0% {
+     transform: scale(9, 9);
+     -webkit-transform: scale(9, 9);
+     filter: blur(30px);
+     -webkit-filter: blur(30px);
+     -moz-filter   : blur(30px);
+     opacity: 0;
+  }
+  70%, 80% {
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    -moz-filter   : blur(0px);
+    opacity: 0.8;
+  }
+  87% {
+    transform: scale(0.9, 0.9);
+    -webkit-transform: scale(0.9, 0.9);
+    filter: blur(15px);
+    -webkit-filter: blur(15px);
+    -moz-filter   : blur(15px);
+  }
+  90% {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    -moz-filter   : blur(0px);
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    opacity: 0.9;
+  }
+  95% {
+    transform: scale(1.5, 1.5);
+    -webkit-transform: scale(1.5, 1.5);
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter   : blur(10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    -moz-filter   : blur(0px);
+    opacity: 1;
+  }
+
+}
+
+
+
+
+.blurOutSubtle {
+  animation: blur-out-subtle 1.2s ease-out 1;
+  -webkit-animation: blur-out-subtle 1.2s ease-out 1;
+  -moz-animation:  blur-out-subtle 1.2s ease-out 1;
+}
+
+.blurInSubtle {
+  animation: blur-out-subtle 1s ease 1;
+  -webkit-animation: blur-out-subtle 1s ease 1;
+  -moz-animation:  blur-out-subtle 1s ease 1;
+  -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
+  animation-direction: reverse;
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+}
+
+
+@keyframes blur-out-subtle {
+  0% {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    -moz-filter   : blur(0px);
+    opacity: 1;
+  }
+  100% {
+     filter: blur(30px);
+     -webkit-filter: blur(30px);
+     -moz-filter   : blur(30px);
+     opacity: 0;
+  }
+
+}
+
+
+
+
 
 /*@keyframes seqText {
   0% { opacity: 0; },
@@ -222,9 +399,9 @@ video.addImg {
 
 .fade-in.fast {
   opacity:0;  /* make things invisible upon start */
-  -webkit-animation:fadeIn .3s ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-  -moz-animation:fadeIn .3s ease-in 1;
-  animation: fadeIn .3s ease-in 1;
+  -webkit-animation:fadeIn .5s ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn .5s ease-in 1;
+  animation: fadeIn .5s ease-in 1;
   -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
   -moz-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
