@@ -123,6 +123,10 @@ function init(){
 
   }
 
+
+
+
+
   var cycleInt;
   var helloArray = ["imgs/hello-003.gif", "imgs/hello-001.gif", "imgs/hello-003.gif", "imgs/hello-004.gif", "imgs/hello-005.gif", "imgs/hello-006.gif"];
   var now = 0;
@@ -273,6 +277,10 @@ function init(){
     }, 2500);
 
   }
+
+
+
+  
 
   var gifSources2 = ['imgs/design-001.gif', 'imgs/design-002.gif', 'imgs/design-003.gif'];
   var videoSources3 = ['imgs/focus_zen.mp4','imgs/focus_wingsuit.mp4','imgs/focus_cheetah.mp4'];

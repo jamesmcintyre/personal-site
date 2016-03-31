@@ -308,7 +308,7 @@ img.addImg {
      -moz-filter   : blur(30px);
      opacity: 0;
   }
-  70%, 80% {
+  /*70%, 80% {
     transform: scale(1, 1);
     -webkit-transform: scale(1, 1);
     filter: blur(0px);
@@ -338,7 +338,7 @@ img.addImg {
     -webkit-filter: blur(10px);
     -moz-filter   : blur(10px);
     opacity: 0.8;
-  }
+  }*/
   100% {
     transform: scale(1, 1);
     -webkit-transform: scale(1, 1);
