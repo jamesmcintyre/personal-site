@@ -12,8 +12,8 @@
 
 
 span.focus {
-  filter: blur(4px);
-  -webkit-filter: blur(4px);
+  filter: blur(7px);
+  -webkit-filter: blur(7px);
 }
 
 span.hello {
@@ -399,6 +399,21 @@ img.addImg {
 
 
 
+.fade-out {
+  -webkit-animation:fadeOut 1s ease-out 1,float 8s ease infinite;  /* call our keyframe named fadeIn, use animattion ease-out and repeat it only 1 time */
+  -moz-animation:fadeOut 1s ease-out 1, float 8s ease infinite;
+  animation: fadeOut 1s ease-out 1, float 8s ease infinite;
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+}
+
+@-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@-moz-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+
+
+
 
 
 /*@keyframes seqText {
@@ -450,9 +465,6 @@ img.addImg {
   -moz-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
 }
-
-
-
 
 
 .fade-in-long {

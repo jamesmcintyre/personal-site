@@ -6,8 +6,17 @@ $(document).ready(function(){
 });
 
 
+$.preloadImages = function() {
+  for (var i = 0; i < arguments.length; i++) {
+    console.log('preload sequence count:', i);
+    $("<img />").attr("src", arguments[i]);
+  }
+}
+
+$.preloadImages("imgs/hello-003.gif", "imgs/hello-001.gif", "imgs/hello-003.gif", "imgs/hello-004.gif", "imgs/hello-005.gif", "imgs/hello-006.gif", "imgs/design-001.gif", "imgs/design-002.gif", "imgs/design-003.gif", "imgs/me.jpg");
 
 function init(){
+
 
   helloSequence();
     //
@@ -37,7 +46,19 @@ function init(){
   var mainCounter = 0;
 
 
+
+
+
+
+
+
+
+
+
+
+
   function revealSpecks(){
+    console.log('reveal specks sequence');
     $groups.forEach(function(e, i, arr){
       $('.bg-container').append($(e));
     });
@@ -45,7 +66,12 @@ function init(){
 
 
 
+
+
+
   function introSequence(counter, limit){
+
+    console.log('intro sequence counter: '+counter+' and limit: '+limit);
 
     $groups[2] = $('.size-3');
 
@@ -77,6 +103,9 @@ function init(){
           else if(limit === 3){
             focusFlash(++limit);
           }
+          else if(limit === 4){
+            console.log('from intor seq', mainCounter);
+          }
       }
 
     }, 300);
@@ -86,7 +115,13 @@ function init(){
 
 
 
+
+
+
+
   function helloSequence(){
+
+    console.log('begin hello sequence');
 
     setTimeout(function(){
       $('.bg-container').append($helloSpeck);
@@ -127,6 +162,11 @@ function init(){
 
 
 
+
+
+
+
+
   var cycleInt;
   var helloArray = ["imgs/hello-003.gif", "imgs/hello-001.gif", "imgs/hello-003.gif", "imgs/hello-004.gif", "imgs/hello-005.gif", "imgs/hello-006.gif"];
   var now = 0;
@@ -138,6 +178,8 @@ function init(){
 
 
   function myFace(){
+
+    console.log('myFace sequence');
 
     var $img = '<img id="face" class="addImg" src="imgs/me.jpg"></img>';
 
@@ -153,15 +195,10 @@ function init(){
 
     }, 1200);
 
+
     setTimeout(function(){
-      $('#spot1').css('background-image', 'url("imgs/me.jpg")');
-      // $('#main-bg').append($faceSpeck);
+
       $('#spot1').css('overflow', '').empty();
-    }, 2800);
-
-
-    setTimeout(function(){
-
       $('span.intro').remove().addClass('blurOutSubtle').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
         $('span.intro').remove();
       });
@@ -191,12 +228,14 @@ function init(){
 
 
 
-  var phrases = ['Hello!', 'My name is James McIntyre.', 'I am a web developer', 'I turn focus into great products.'];
-  var specialWordsEachPhrase = [{words: [0], style: 'hello'}, {words: [3, 4], style: 'name'}, {words: [3, 4], style: 'swap'}, {words: [2], style: 'focus'}];
+  var phrases = ['Hello!', 'My name is James McIntyre.', 'I am a web developer.', 'I turn focus ', 'intro great products.'];
+  var specialWordsEachPhrase = [{words: [0], style: 'hello'}, {words: [3, 4], style: 'name'}, {words: [3, 4], style: 'swap'}, {words: [2], style: 'focus'}, {words: [3], style: 'products'}];
   var $introTextContainer = $('#text-contain');
 
 
   function textType(specialWordsAndStyle){
+
+    console.log('textType sequence', specialWordsAndStyle);
 
     var words = phrases[mainCounter].split(' ');
 
@@ -228,41 +267,61 @@ function init(){
 
 
 
+
+
+
+
+
   function swapSequence(){
+
+    console.log('swapSequence');
 
     var spans = ['<span class="intro swap fade-in fast">UX </span>', '<span class="intro swap fade-in fast">designer.</span>'];
     var spans2 = ['<span class="intro swap fade-in fast">product </span>', '<span class="intro swap fade-in fast">guy.</span>'];
 
     setTimeout(function(){
-    }, 2000);
-
-    setTimeout(function(){
       $('.swap').remove();
+      $('#iam1').css('opacity', '0');
       $('#iam2').css('opacity', '1');
       spans.forEach(function(e, i, arr){
         return setTimeout(function(){
           $introTextContainer.append(e);
         }, i*280);
       });
-    }, 2000);
+    }, 2100);
 
     setTimeout(function(){
       $('.swap').remove();
+      $('#iam2').css('opacity', '0');
       $('#iam3').css('opacity', '1');
       spans2.forEach(function(e, i, arr){
         return setTimeout(function(){
           $introTextContainer.append(e);
         }, i*280);
       });
-    }, 4000);
+    }, 5200);
 
+    setTimeout(function(){
+      $('.size-4').each(function(){
+        $(this).empty().css('overflow', '');
+      });
+      $('.intro').remove();
+      mainCounter++;
+      introSequence(0,4);
+    }, 7500);
 
 
   }
 
 
 
+
+
+
+
   function focusSequence(){
+
+    console.log('focusSequence');
 
     setTimeout(function(){
       var $currentSpecks = $('.current-speck');
@@ -271,16 +330,36 @@ function init(){
       });
       $('.speck, .norm').addClass('highBlur');
       $('.focus').removeClass('focus');
-    }, 1000);
+    }, 500);
     setTimeout(function(){
       $('.speck, .norm').removeClass('highBlur');
     }, 2500);
+
+    setTimeout(function(){
+      var spans = ['<span class="intro fade-in fast">into </span>', '<span class="intro fade-in fast">great </span>', '<span class="intro fade-in fast">products.</span>'];
+      spans.forEach(function(e, i, arr){
+        return setTimeout(function(){
+          $introTextContainer.append(e);
+        }, i*280);
+      });
+    }, 3100);
+
+    setTimeout(function(){
+      $('.speck').removeClass('fade-in').addClass('fade-out');
+    }, 5000);
+
+    setTimeout(function(){
+      $('.intro').removeClass('fade-in floating two').addClass('fade-out');
+    }, 7500);
 
   }
 
 
 
-  
+
+
+
+
 
   var gifSources2 = ['imgs/design-001.gif', 'imgs/design-002.gif', 'imgs/design-003.gif'];
   var videoSources3 = ['imgs/focus_zen.mp4','imgs/focus_wingsuit.mp4','imgs/focus_cheetah.mp4'];
@@ -339,7 +418,5 @@ function init(){
       });
 
     }
-
-
 
   };
