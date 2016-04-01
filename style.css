@@ -10,6 +10,39 @@
   background-color: rgba(180, 180, 180, 0.72);
 }
 
+a, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+#info {
+  margin-top: 40vh;
+}
+
+#name {
+  font-size: 5.5vw;
+  font-family: "Roboto",sans-serif;
+  font-weight: 100;
+  color: #585858;
+}
+
+#link {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #ECECEC;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+  color: #757575;
+  letter-spacing: 1px;
+  font-weight: 100;
+}
+
+#link:last-of-type {
+  padding-right: 0px;
+  border-right: 0px;
+}
+
 
 span.focus {
   filter: blur(7px);
@@ -19,27 +52,6 @@ span.focus {
 span.hello {
   font-size: 6vmax !important;
 }
-
-
-.in-focus-bg {
-  background: -moz-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(227,227,227,1) 33%, rgba(217,217,217,1) 33%, rgba(254,254,254,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(240,240,240,1)), color-stop(33%, rgba(227,227,227,1)), color-stop(33%, rgba(217,217,217,1)), color-stop(100%, rgba(254,254,254,1)));
-  background: -webkit-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(227,227,227,1) 33%, rgba(217,217,217,1) 33%, rgba(254,254,254,1) 100%);
-  background: -o-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(227,227,227,1) 33%, rgba(217,217,217,1) 33%, rgba(254,254,254,1) 100%);
-  background: -ms-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(227,227,227,1) 33%, rgba(217,217,217,1) 33%, rgba(254,254,254,1) 100%);
-  background: linear-gradient(to bottom, rgba(240,240,240,1) 0%, rgba(227,227,227,1) 33%, rgba(217,217,217,1) 33%, rgba(254,254,254,1) 100%);
-}
-
-.out-focus-bg {
-  background: -moz-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(217,217,217,1) 31%, rgba(254,254,254,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(240,240,240,1)), color-stop(31%, rgba(217,217,217,1)), color-stop(100%, rgba(254,254,254,1)));
-  background: -webkit-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(217,217,217,1) 31%, rgba(254,254,254,1) 100%);
-  background: -o-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(217,217,217,1) 31%, rgba(254,254,254,1) 100%);
-  background: -ms-linear-gradient(top, rgba(240,240,240,1) 0%, rgba(217,217,217,1) 31%, rgba(254,254,254,1) 100%);
-  background: linear-gradient(to bottom, rgba(240,240,240,1) 0%, rgba(217,217,217,1) 31%, rgba(254,254,254,1) 100%);
-}
-
-
 
 span.intro {
   font-size: 51px;
@@ -66,6 +78,40 @@ span.bold {
 .page {
   z-index: 1;
 }
+
+.loading {
+  border-radius: 50%;
+  position: relative;
+  width: 1.5vmax;
+  height: 1.5vmax;
+  background-color: rgb(128, 128, 128);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45vh;
+  animation: load-in 1s ease 5;
+  -webkit-animation: load-in 1s ease 5;
+  -moz-animation:  load-in 1s ease 5;
+}
+
+@-webkit-keyframes load-in {
+  50%{
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+  }
+}
+@-moz-keyframes load-in {
+  50%{
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+  }
+}
+@keyframes load-in {
+  50%{
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+  }
+}
+
 
 .bg-container {
   width: 100%;
@@ -97,11 +143,8 @@ span.bold {
 .special-speck{
   border-radius: 50%;
   position: absolute;;
-  /*transition: .4s all ease;*/
-  /*-moz-transition: 1s -moz-filter linear;*/
   background: url('imgs/hello-001.gif') center center no-repeat;
   background-size: cover;
-  /*filter: url(blur.svg#blur);*/
 }
 
 .special-speck-2{
@@ -113,9 +156,7 @@ span.bold {
 
 
 #spot1 {
-  /*background-image: url('imgs/me.jpg');*/
   background-size: cover;
-  /*transition: 2s all ease;*/
 }
 
 
@@ -262,7 +303,7 @@ img.addImg {
   animation: blur-in 3s ease-out 1;
   -webkit-animation: blur-in 3s ease-out 1;
   -moz-animation:  blur-in 3s ease-out 1;
-  -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
+  -webkit-animation-direction: reverse;
   animation-direction: reverse;
 }
 
@@ -272,7 +313,7 @@ img.addImg {
   animation: blur-in-low 3.5s ease 1;
   -webkit-animation: blur-in-low 3.5s ease 1;
   -moz-animation:  blur-in-low 3.5s ease 1;
-  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -webkit-animation-fill-mode:forwards;
   -moz-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
 }
@@ -282,13 +323,11 @@ img.addImg {
      filter: blur(25px);
      -webkit-filter: blur(25px);
      opacity: 0.6;
-     /*transform: scale(1.3, 1.3);*/
   }
   100% {
     filter: blur(0px);
     -webkit-filter: blur(0px);
     opacity: 1;
-   /*transform: scale(1, 1);*/
   }
 }
 
@@ -363,9 +402,9 @@ img.addImg {
   animation: blur-out-subtle 1s ease 1;
   -webkit-animation: blur-out-subtle 1s ease 1;
   -moz-animation:  blur-out-subtle 1s ease 1;
-  -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
+  -webkit-animation-direction: reverse;
   animation-direction: reverse;
-  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -webkit-animation-fill-mode:forwards;
   -moz-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
 }
@@ -373,9 +412,9 @@ img.addImg {
   animation: blur-out-subtle .4s ease 1;
   -webkit-animation: blur-out-subtle .4s ease 1;
   -moz-animation:  blur-out-subtle .4s ease 1;
-  -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
+  -webkit-animation-direction: reverse;
   animation-direction: reverse;
-  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -webkit-animation-fill-mode:forwards;
   -moz-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
 }
@@ -400,10 +439,10 @@ img.addImg {
 
 
 .fade-out {
-  -webkit-animation:fadeOut 1s ease-out 1,float 8s ease infinite;  /* call our keyframe named fadeIn, use animattion ease-out and repeat it only 1 time */
+  -webkit-animation:fadeOut 1s ease-out 1,float 8s ease infinite;
   -moz-animation:fadeOut 1s ease-out 1, float 8s ease infinite;
   animation: fadeOut 1s ease-out 1, float 8s ease infinite;
-  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -webkit-animation-fill-mode:forwards;
   -moz-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
 }
@@ -415,65 +454,40 @@ img.addImg {
 
 
 
-
-/*@keyframes seqText {
-  0% { opacity: 0; },
-	100% { opacity: 1; }
-}
-#intro-text span {
-	animation: seqText 2s forwards;
-
-}
-#intro-text span:nth-child(1) {
-	animation-delay: .5s;
-}
-#intro-text span:nth-child(2) {
-	animation-delay: 1s;
-}
-#intro-text span:nth-child(3) {
-	animation-delay: 1.5s;
-}*/
-
-/* make keyframes that tell the start state and the end state of our object */
-
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
 .fade-in {
-	opacity:0;  /* make things invisible upon start */
-	-webkit-animation:fadeIn 1.5s ease-in 1, float 8s ease infinite;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	opacity:0;
+	-webkit-animation:fadeIn 1.5s ease-in 1, float 8s ease infinite;
 	-moz-animation:fadeIn 1.5s ease-in 1, float 8s ease infinite;
 	animation: fadeIn 1.5s ease-in 1, float 8s ease infinite;
 
-	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	-webkit-animation-fill-mode:forwards;
 	-moz-animation-fill-mode:forwards;
 	animation-fill-mode:forwards;
-
-	/*-webkit-animation-duration:.5s;
-	-moz-animation-duration:.5s;
-	animation-duration:.5s;*/
 
 }
 
 .fade-in.fast {
-  opacity:0;  /* make things invisible upon start */
-  -webkit-animation:fadeIn .5s ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  opacity:0;
+  -webkit-animation:fadeIn .5s ease-in 1;
   -moz-animation:fadeIn .5s ease-in 1;
   animation: fadeIn .5s ease-in 1;
-  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -webkit-animation-fill-mode:forwards;
   -moz-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
 }
 
 
 .fade-in-long {
-	opacity:0;  /* make things invisible upon start */
-  -webkit-animation:fadeIn 1s ease-in 1, float 8s ease infinite;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	opacity:0;
+  -webkit-animation:fadeIn 1s ease-in 1, float 8s ease infinite;
 	-moz-animation:fadeIn 1s ease-in 1, float 8s ease infinite;
 	animation: fadeIn 1s ease-in 1, float 8s ease infinite;
 
-	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	-webkit-animation-fill-mode:forwards;
 	-moz-animation-fill-mode:forwards;
 	animation-fill-mode:forwards;
 
