@@ -22,11 +22,11 @@ function init(){
       $("<img />").attr("src", arguments[i]);
     }
   }
-  $.preloadImages("imgs/hello-003.gif", "imgs/hello-001.gif", "imgs/hello-003.gif", "imgs/hello-004.gif", "imgs/hello-005.gif", "imgs/design-001.gif", "imgs/design-002.gif", "imgs/design-003.gif", "imgs/me.jpg");
+  $.preloadImages("imgs/hello-001.gif", "imgs/hello-003.gif", "imgs/hello-004.gif", "imgs/hello-005.gif", "imgs/design-001.gif", "imgs/design-002.gif", "imgs/design-003.gif", "imgs/me.jpg");
 
   setTimeout(function(){
     helloSequence();
-  }, 4500);
+  }, 1500);
 }
 
 
